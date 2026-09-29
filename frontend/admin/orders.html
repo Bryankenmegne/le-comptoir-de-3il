@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Commandes | Administration Le Comptoir de 3iL</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <script src="../js/config.js" defer></script>
+    <script src="../js/api.js" defer></script>
+    <script src="../js/auth.js" defer></script>
+    <script src="../js/admin.js" defer></script>
+</head>
+<body class="admin-body" data-page="orders" data-root="../">
+    <aside class="admin-sidebar" id="admin-sidebar"></aside>
+
+    <main class="admin-main" id="contenu">
+        <div class="admin-top">
+            <h1>Commandes</h1>
+        </div>
+        <div id="page-alert"></div>
+
+        <section class="panel">
+            <div class="toolbar">
+                <label class="sr-only" for="filter-status">Filtrer par statut</label>
+                <select class="input" id="filter-status"></select>
+                <span class="count" id="order-total" aria-live="polite"></span>
+            </div>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Ticket</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Client</th>
+                            <th scope="col">Contenu</th>
+                            <th scope="col" class="num">Total</th>
+                            <th scope="col">Statut</th>
+                            <th scope="col">Changer le statut</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orders-body">
+                        <tr><td colspan="7" class="empty-cell">Chargement…</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

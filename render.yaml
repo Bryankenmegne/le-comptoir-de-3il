@@ -1,0 +1,17 @@
+# Déploiement de l'API sur Render (https://render.com) via "New > Blueprint".
+# Le front-end, lui, se déploie sur Vercel (voir README.md).
+services:
+  - type: web
+    name: ecommerce-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    healthCheckPath: /api/health
+    envVars:
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ALLOWED_ORIGINS
+        value: https://*.vercel.app,http://localhost:*,http://127.0.0.1:*
+      - key: H2_CONSOLE_ENABLED
+        value: "false"

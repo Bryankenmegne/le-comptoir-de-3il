@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Produits | Administration Le Comptoir de 3iL</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <script src="../js/config.js" defer></script>
+    <script src="../js/api.js" defer></script>
+    <script src="../js/auth.js" defer></script>
+    <script src="../js/admin.js" defer></script>
+</head>
+<body class="admin-body" data-page="products" data-root="../">
+    <aside class="admin-sidebar" id="admin-sidebar"></aside>
+
+    <main class="admin-main" id="contenu">
+        <div class="admin-top">
+            <h1>Produits</h1>
+            <button type="button" class="btn" id="add-product-btn">Ajouter un produit</button>
+        </div>
+        <div id="page-alert"></div>
+
+        <section class="panel">
+            <div class="toolbar">
+                <label class="sr-only" for="filter-search">Rechercher</label>
+                <input type="search" class="input" id="filter-search" placeholder="Rechercher par nom">
+                <label class="sr-only" for="filter-category">Catégorie</label>
+                <select class="input" id="filter-category"><option value="">Toutes les catégories</option></select>
+                <span class="count" id="product-total" aria-live="polite"></span>
+            </div>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th scope="col"><span class="sr-only">Image</span></th>
+                            <th scope="col">Produit</th>
+                            <th scope="col">Catégorie</th>
+                            <th scope="col" class="num">Prix</th>
+                            <th scope="col">Stock</th>
+                            <th scope="col"><span class="sr-only">Actions</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="products-body">
+                        <tr><td colspan="6" class="empty-cell">Chargement…</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <dialog class="dialog" id="product-dialog" aria-labelledby="product-dialog-title">
+            <form id="product-form" novalidate>
+                <h2 class="dialog-title" id="product-dialog-title">Ajouter un produit</h2>
+                <div class="dialog-alert"></div>
+                <input type="hidden" name="recordId">
+                <div class="form-grid">
+                    <div class="field span-2">
+                        <label for="p-nom">Nom</label>
+                        <input type="text" id="p-nom" name="nom" maxlength="150" required>
+                        <p class="field-error" data-for="nom"></p>
+                    </div>
+                    <div class="field">
+                        <label for="p-prix">Prix (€)</label>
+                        <input type="number" id="p-prix" name="prix" min="0.01" step="0.01" required>
+                        <p class="field-error" data-for="prix"></p>
+                    </div>
+                    <div class="field">
+                        <label for="p-stock">Stock</label>
+                        <input type="number" id="p-stock" name="stock" min="0" step="1" required>
+                        <p class="field-error" data-for="stock"></p>
+                    </div>
+                    <div class="field span-2">
+                        <label for="p-category">Catégorie</label>
+                        <select id="p-category" name="categoryId" required></select>
+                        <p class="field-error" data-for="categoryId"></p>
+                    </div>
+                    <div class="span-2 image-field">
+                        <div class="field">
+                            <label for="p-image">URL de l'image</label>
+                            <input type="url" id="p-image" name="imageUrl" maxlength="500" placeholder="https://…">
+                            <span class="hint">Laissez vide pour afficher une image par défaut.</span>
+                            <p class="field-error" data-for="imageUrl"></p>
+                        </div>
+                        <img class="image-preview" id="image-preview" alt="Aperçu de l'image">
+                    </div>
+                    <div class="field span-2">
+                        <label for="p-description">Description</label>
+                        <textarea id="p-description" name="description" maxlength="2000"></textarea>
+                        <p class="field-error" data-for="description"></p>
+                    </div>
+                </div>
+                <div class="dialog-actions">
+                    <button type="button" class="btn btn-ghost dialog-cancel">Annuler</button>
+                    <button type="submit" class="btn">Ajouter le produit</button>
+                </div>
+            </form>
+        </dialog>
+    </main>
+</body>
+</html>

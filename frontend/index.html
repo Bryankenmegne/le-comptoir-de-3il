@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Commandez votre pause au Comptoir de 3iL : sandwichs, boissons, snacks et petit-déjeuner.">
+    <title>Le Comptoir de 3iL | Commandez votre pause</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/config.js" defer></script>
+    <script src="js/api.js" defer></script>
+    <script src="js/auth.js" defer></script>
+    <script src="js/cart.js" defer></script>
+    <script src="js/products.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header" id="site-header"></header>
+
+    <main id="contenu">
+        <section class="container catalog-head">
+            <h1>Commandez votre pause, retirez-la au comptoir</h1>
+            <p class="lead">Choisissez ce que vous voulez manger, validez votre commande et présentez votre numéro de ticket au comptoir. Pas de file d’attente.</p>
+            <form class="search-form" id="search-form" role="search">
+                <label for="search-input" class="sr-only">Rechercher un article</label>
+                <input type="search" id="search-input" name="q" placeholder="Sandwich, café, cookie…" autocomplete="off">
+                <button type="submit" class="btn">Rechercher</button>
+            </form>
+        </section>
+
+        <section class="container" aria-labelledby="catalogue-titre">
+            <h2 id="catalogue-titre" class="sr-only">La carte</h2>
+            <div class="catalog-bar">
+                <div class="chips" id="category-filters" role="group" aria-label="Filtrer par catégorie"></div>
+                <p class="product-count" id="product-count" aria-live="polite"></p>
+            </div>
+            <div class="product-grid" id="product-grid">
+                <p class="loading">Chargement de la carte…</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="site-footer"></footer>
+</body>
+</html>

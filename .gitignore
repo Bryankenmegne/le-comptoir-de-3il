@@ -1,0 +1,21 @@
+# Java / Maven
+backend/target/
+*.class
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Système
+.DS_Store
+Thumbs.db
+
+# Vercel
+.vercel
+
+# Eclipse
+.metadata/
+
+# Claude Code (outil de développement)
+.claude/

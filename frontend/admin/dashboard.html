@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Tableau de bord | Administration Le Comptoir de 3iL</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <script src="../js/config.js" defer></script>
+    <script src="../js/api.js" defer></script>
+    <script src="../js/auth.js" defer></script>
+    <script src="../js/admin.js" defer></script>
+</head>
+<body class="admin-body" data-page="dashboard" data-root="../">
+    <aside class="admin-sidebar" id="admin-sidebar"></aside>
+
+    <main class="admin-main" id="contenu">
+        <div class="admin-top">
+            <h1>Tableau de bord</h1>
+            <a class="btn btn-secondary" href="products.html">Gérer les produits</a>
+        </div>
+        <div id="page-alert"></div>
+
+        <dl class="stats" id="stats">
+            <div class="stat stat-main"><dt>Chiffre d'affaires</dt><dd>…</dd></div>
+        </dl>
+
+        <div class="panel-grid">
+            <section class="panel" aria-labelledby="recent-title">
+                <h2 id="recent-title">Dernières commandes</h2>
+                <div id="recent-orders"><p class="muted">Chargement…</p></div>
+                <p class="small"><a href="orders.html">Toutes les commandes</a></p>
+            </section>
+            <section class="panel" aria-labelledby="stock-title">
+                <h2 id="stock-title">Stock faible</h2>
+                <div id="low-stock"><p class="muted">Chargement…</p></div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

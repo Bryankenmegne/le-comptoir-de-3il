@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Catégories | Administration Le Comptoir de 3iL</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <script src="../js/config.js" defer></script>
+    <script src="../js/api.js" defer></script>
+    <script src="../js/auth.js" defer></script>
+    <script src="../js/admin.js" defer></script>
+</head>
+<body class="admin-body" data-page="categories" data-root="../">
+    <aside class="admin-sidebar" id="admin-sidebar"></aside>
+
+    <main class="admin-main" id="contenu">
+        <div class="admin-top">
+            <h1>Catégories</h1>
+            <button type="button" class="btn" id="add-category-btn">Ajouter une catégorie</button>
+        </div>
+        <div id="page-alert"></div>
+
+        <section class="panel">
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Description</th>
+                            <th scope="col" class="num">Produits</th>
+                            <th scope="col"><span class="sr-only">Actions</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="categories-body">
+                        <tr><td colspan="4" class="empty-cell">Chargement…</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="muted small">Une catégorie ne peut être supprimée que si elle ne contient aucun produit.</p>
+        </section>
+
+        <dialog class="dialog" id="category-dialog" aria-labelledby="category-dialog-title">
+            <form id="category-form" novalidate>
+                <h2 class="dialog-title" id="category-dialog-title">Ajouter une catégorie</h2>
+                <div class="dialog-alert"></div>
+                <input type="hidden" name="recordId">
+                <div class="field">
+                    <label for="c-nom">Nom</label>
+                    <input type="text" id="c-nom" name="nom" maxlength="100" required>
+                    <p class="field-error" data-for="nom"></p>
+                </div>
+                <div class="field">
+                    <label for="c-description">Description</label>
+                    <textarea id="c-description" name="description" maxlength="500"></textarea>
+                    <p class="field-error" data-for="description"></p>
+                </div>
+                <div class="dialog-actions">
+                    <button type="button" class="btn btn-ghost dialog-cancel">Annuler</button>
+                    <button type="submit" class="btn">Ajouter la catégorie</button>
+                </div>
+            </form>
+        </dialog>
+    </main>
+</body>
+</html>
