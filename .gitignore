@@ -19,3 +19,9 @@ Thumbs.db
 
 # Claude Code (outil de développement)
 .claude/
+
+# Fichiers générés par Eclipse / Spring Tools (propres à chaque poste)
+backend/.classpath
+backend/.project
+backend/.factorypath
+backend/.settings/

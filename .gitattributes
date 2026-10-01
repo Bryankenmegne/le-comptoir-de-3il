@@ -1,0 +1,19 @@
+# Git normalise les fins de ligne : le dépôt stocke du LF,
+# chacun garde le confort de son système sans fausses modifications.
+* text=auto
+
+# Le script Windows doit rester en CRLF pour fonctionner
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Scripts shell : toujours LF
+*.sh text eol=lf
+
+# Fichiers binaires : ne jamais toucher
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.jar binary
+*.zip binary
